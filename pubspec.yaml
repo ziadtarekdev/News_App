@@ -41,6 +41,10 @@ dependencies:
   provider: ^6.1.5+1
   http: ^1.6.0
   cached_network_image: ^3.4.1
+  bounce: ^1.0.2
+  sheet: ^1.0.1
+  url_launcher: ^6.3.2
+  fluttertoast: ^10.0.0
 
 dev_dependencies:
   flutter_test:

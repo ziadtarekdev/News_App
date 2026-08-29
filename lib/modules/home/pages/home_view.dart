@@ -6,7 +6,9 @@ import 'package:news_app_cycle19_sun/main.dart';
 import 'package:news_app_cycle19_sun/models/category_model.dart';
 import 'package:news_app_cycle19_sun/modules/home/pages/widgets/category_card_item.dart';
 import 'package:news_app_cycle19_sun/modules/home/pages/widgets/drawer_builder_view.dart';
+import 'package:news_app_cycle19_sun/modules/home/pages/widgets/news_search_delegate.dart';
 import 'package:news_app_cycle19_sun/modules/home/pages/widgets/selected_category_view.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -68,7 +70,15 @@ class _HomeViewState extends State<HomeView> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Assets.icons.searchIcn.svg(),
+            child: GestureDetector(
+              child: Assets.icons.searchIcn.svg(),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SearchView()),
+                );
+              },
+            ),
           ),
         ],
       ),
