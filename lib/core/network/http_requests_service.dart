@@ -59,13 +59,15 @@ abstract class HttpRequestsService {
 
     return articles;
   }
-  static Future<List<ArticleModel>> searchArticles(String query) async {
+  static Future<List<ArticleModel>> searchArticles(String query,int page) async {
     final Map<String, dynamic> queryParameters = {
       "apiKey": AppConstants.apiKey,
       "q": query,
+      'pageSize': '10',
+      'page': page.toString(),
     };
     final response = await http.get(
-      Uri.https(AppConstants.baseURL, EndPoints.allArticles, queryParameters),
+      Uri.https(AppConstants.baseURL, EndPoints.searchArticles, queryParameters),
     );
 
     final decodedData = jsonDecode(response.body);

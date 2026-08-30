@@ -47,7 +47,7 @@ class ArticleDetails extends StatelessWidget {
             Button(text: "View Full Article", onPressed: () async {
               final url = Uri.parse(article.url);
               if (await canLaunchUrl(url)) {
-                await launchUrl(url, mode: LaunchMode.externalApplication);
+                await launchUrl(url, mode: LaunchMode.inAppWebView);
               } else {
                 Fluttertoast.showToast(
                     msg: "Could not open article",
